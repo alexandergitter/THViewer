@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root>
+    <file type="strings">lang-0.dat</file>
+    <file type="strings">lang-1.dat</file>
+    <file type="strings">lang-2.dat</file>
+    <file type="strings">lang-3.dat</file>
+    <file type="strings">lang-4.dat</file>
+    <file type="strings">lang-5.dat</file>
+    
+    <file type="savegame" frametab="data/vspr-0.tab" framepalette="data/mpalette.dat" framechunks="data/vspr-0.dat" frameelement="data/vele-1.ani" framelist="data/vlist-1.ani" frames="data/vfra-1.ani" blocktab="data/vblk-0.tab" blockpalette="data/mpalette.dat" blockchunks="data/vblk-0.dat">.*\.h[0-9]{1,2}</file>
+    
+    <file type="sound">sound-0.dat</file>
+    <file type="sound">sound-1.dat</file>
+    <file type="sound">sound-2.dat</file>
+    <file type="sound">sound-3.dat</file>
+    <file type="sound">sound-4.dat</file>
+    <file type="sound">sound-5.dat</file>
+        
+    <file type="palette">mpalette.dat</file>
+    
+    <file type="raw" palette="qdata/load01v.pal" width="640" height="480">load01v.dat</file>
+    <file type="raw" palette="qdata/area01v.pal" width="640" height="480">area01v.dat</file>
+    <file type="raw" palette="qdata/award01v.pal" width="640" height="480">award01v.dat</file>
+    <file type="raw" palette="qdata/award02v.pal" width="640" height="480">award02v.dat</file>
+    <file type="raw" palette="qdata/bank01v.pal" width="640" height="480">bank01v.dat</file>
+    <file type="raw" palette="qdata/bid01v.pal" width="640" height="480">bid01v.dat</file>
+    <file type="raw" palette="qdata/brief01v.pal" width="640" height="480">brief01v.dat</file>
+    <file type="raw" palette="qdata/cred01v.pal" width="640" height="480">cred01v.dat</file>
+    <file type="raw" palette="qdata/drugn01v.pal" width="640" height="480">drugn01v.dat</file>
+    <file type="raw" palette="data/mpalette.dat" width="65" height="1350">face01v.dat</file>
+    <file type="raw" palette="qdata/fame01v.pal" width="640" height="480">fame01v.dat</file>
+    <file type="raw" palette="qdata/fax01v.pal" width="640" height="480">fax01v.dat</file>
+    <file type="raw" palette="qdata/graph01v.pal" width="640" height="480">graph01v.dat</file>
+    <file type="raw" palette="qdata/main01m.pal" width="320" height="200">main01m.dat</file>
+    <file type="raw" palette="qdata/pol01v.pal" width="640" height="480">pol01v.dat</file>
+    <file type="raw" palette="qdata/pref01v.pal" width="640" height="480">pref01v.dat</file>
+    <file type="raw" palette="qdata/rep01v.pal" width="640" height="480">rep01v.dat</file>
+    <file type="raw" palette="qdata/res01v.pal" width="640" height="480">res01v.dat</file>
+    <file type="raw" palette="qdata/score01v.pal" width="640" height="480">score01v.dat</file>
+    <file type="raw" palette="qdata/staff01v.pal" width="640" height="480">staff01v.dat</file>
+    <file type="raw" palette="qdata/stat01v.pal" width="640" height="480">stat01v.dat</file>
+    <file type="raw" palette="qdata/town01v.pal" width="640" height="480">town01v.dat</file>
+    <file type="raw" palette="qdata/title01v.pal" width="640" height="480">title01v.dat</file>
+    <file type="raw" palette="data/mpalette.dat" width="32" height="665">face01m.dat</file>
+    
+    <file type="chunks" tab="data/money01v.tab" palette="data/mpalette.dat">money01v.dat</file>
+    <file type="chunks" tab="data/vblk-0.tab" palette="data/mpalette.dat">vblk-0.dat</file>
+    <file type="chunks" tab="datam/mblk-0.tab" palette="data/mpalette.dat">mblk-0.dat</file>
+    <file type="chunks" tab="datam/money01m.tab" palette="data/mpalette.dat">money01m.dat</file>
+    <file type="chunks" tab="data/mpointer.tab" palette="data/mpalette.dat">mpointer.dat</file>
+    <file type="chunks" tab="datam/mspr-0.tab" palette="data/mpalette.dat">mspr-0.dat</file>
+    <file type="chunks" tab="qdata/spointer.tab" palette="qdata/area01v.pal">spointer.dat</file>
+    
+    <file type="chunks" tab="qdatam/font100m.tab" palette="data/mpalette.dat">font100m.dat</file>
+    <file type="chunks" tab="qdata/font100v.tab" palette="data/mpalette.dat">font100v.dat</file>
+    
+    <file type="extchunks" tab="data/watch01v.tab" palette="data/mpalette.dat">watch01v.dat</file>
+    <file type="extchunks" tab="data/panel02v.tab" palette="data/mpalette.dat">panel02v.dat</file>
+    <file type="extchunks" tab="data/panel04v.tab" palette="data/mpalette.dat">panel04v.dat</file>
+    <file type="extchunks" tab="data/pulldv.tab" palette="data/mpalette.dat">pulldv.dat</file>
+    <file type="extchunks" tab="datam/mutton01.tab" palette="data/mpalette.dat">mutton01.dat</file>
+    <file type="extchunks" tab="datam/panel02m.tab" palette="data/mpalette.dat">panel02m.dat</file>
+    <file type="extchunks" tab="datam/pulldm.tab" palette="data/mpalette.dat">pulldm.dat</file>
+    <file type="extchunks" tab="datam/watch01m.tab" palette="data/mpalette.dat">watch01m.dat</file>
+    <file type="extchunks" tab="qdata/award03v.tab" palette="qdata/award01v.pal">award03v.dat</file>
+    <file type="extchunks" tab="qdata/bank02v.tab" palette="qdata/bank01v.pal">bank02v.dat</file>
+    <file type="extchunks" tab="qdata/bid02v.tab" palette="qdata/bid01v.pal">bid02v.dat</file>
+    <file type="extchunks" tab="qdata/drugn02v.tab" palette="qdata/drugn01v.pal">drugn02v.dat</file>
+    <file type="extchunks" tab="qdata/fame02v.tab" palette="qdata/fame01v.pal">fame02v.dat</file>
+    <file type="extchunks" tab="qdata/fax02v.tab" palette="qdata/fax01v.pal">fax02v.dat</file>
+    <file type="extchunks" tab="qdata/graph02v.tab" palette="qdata/graph01v.pal">graph02v.dat</file>
+    <file type="extchunks" tab="qdata/lettr02v.tab" palette="">lettr02v.dat</file>
+    <file type="extchunks" tab="qdata/load02v.tab" palette="qdata/load01v.pal">load02v.dat</file>
+    <file type="extchunks" tab="qdata/main02m.tab" palette="qdata/main01m.pal">main02m.dat</file>
+    <file type="extchunks" tab="qdata/pol02v.tab" palette="qdata/pol01v.pal">pol02v.dat</file>
+    <file type="extchunks" tab="qdata/pref02v.tab" palette="qdata/pref01v.pal">pref02v.dat</file>
+    <file type="extchunks" tab="qdata/rep02v.tab" palette="qdata/rep01v.pal">rep02v.dat</file>
+    <file type="extchunks" tab="qdata/req00v.tab" palette="data/mpalette.dat">req00v.dat</file>
+    <file type="extchunks" tab="qdata/req01v.tab" palette="data/mpalette.dat">req01v.dat</file>
+    <file type="extchunks" tab="qdata/req02v.tab" palette="data/mpalette.dat">req02v.dat</file>
+    <file type="extchunks" tab="qdata/req03v.tab" palette="data/mpalette.dat">req03v.dat</file>
+    <file type="extchunks" tab="qdata/req04v.tab" palette="data/mpalette.dat">req04v.dat</file>
+    <file type="extchunks" tab="qdata/req05v.tab" palette="data/mpalette.dat">req05v.dat</file>
+    <file type="extchunks" tab="qdata/req06v.tab" palette="data/mpalette.dat">req06v.dat</file>
+    <file type="extchunks" tab="qdata/req09v.tab" palette="data/mpalette.dat">req09v.dat</file>
+    <file type="extchunks" tab="qdata/req10v.tab" palette="data/mpalette.dat">req10v.dat</file>
+    <file type="extchunks" tab="qdata/req11v.tab" palette="data/mpalette.dat">req11v.dat</file>
+    <file type="extchunks" tab="qdata/req12v.tab" palette="data/mpalette.dat">req12v.dat</file>
+    <file type="extchunks" tab="qdata/req13v.tab" palette="data/mpalette.dat">req13v.dat</file>
+    <file type="extchunks" tab="qdata/res02v.tab" palette="qdata/res01v.pal">res02v.dat</file>
+    <file type="extchunks" tab="qdata/staff02v.tab" palette="qdata/staff01v.pal">staff02v.dat</file>
+    <file type="extchunks" tab="qdata/stat02v.tab" palette="qdata/stat01v.pal">stat02v.dat</file>
+    <file type="extchunks" tab="qdata/town02v.tab" palette="qdata/town01v.pal">town02v.dat</file>
+        
+    <file type="spriteelement" tab="data/vspr-0.tab" palette="data/mpalette.dat" chunks="data/vspr-0.dat">vele-1.ani</file>
+    <file type="spriteelement" tab="datam/mspr-0.tab" palette="data/mpalette.dat" chunks="datam/mspr-0.dat">mele-1.ani</file>
+    
+    <file type="frames" tab="data/vspr-0.tab" palette="data/mpalette.dat" chunks="data/vspr-0.dat" spriteelement="data/vele-1.ani" list="data/vlist-1.ani">vfra-1.ani</file>
+    <file type="frames" tab="datam/mspr-0.tab" palette="data/mpalette.dat" chunks="datam/mspr-0.dat" spriteelement="datam/mele-1.ani" list="datam/mlist-1.ani">mfra-1.ani</file>
+    
+    <file type="animstart" tab="data/vspr-0.tab" palette="data/mpalette.dat" chunks="data/vspr-0.dat" spriteelement="data/vele-1.ani" list="data/vlist-1.ani" frames="data/vfra-1.ani">vstart-1.ani</file>
+    <file type="animstart" tab="datam/mspr-0.tab" palette="data/mpalette.dat" chunks="datam/mspr-0.dat" spriteelement="datam/mele-1.ani" list="datam/mlist-1.ani" frames="datam/mfra-1.ani">mstart-1.ani</file>
+    
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l1</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l2</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l3</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l4</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l5</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l6</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l7</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l8</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l9</file>
+    
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l10</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l11</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l12</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l13</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l14</file>
+    
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l20</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l21</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l22</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l23</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l24</file>
+    
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l30</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l31</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l32</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l33</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l34</file>
+    
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l40</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l41</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l42</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l43</file>
+    <file type="map" tab="data/vblk-0.tab" palette="data/mpalette.dat" chunks="data/vblk-0.dat">level.l44</file>
+</root>

@@ -1,0 +1,4 @@
+* run THViewer.jar with java
+* the application will ask you for the location of your Theme Hospital directory
+* source code is included in the jar
+* for THViewer to be able to automatically decompress RNC-files, dernc must be available on your PATH
