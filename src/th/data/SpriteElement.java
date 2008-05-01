@@ -13,7 +13,6 @@ package th.data;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import javax.swing.JOptionPane;
-import org.apache.commons.io.EndianUtils;
 import th.Main;
 
 public class SpriteElement {

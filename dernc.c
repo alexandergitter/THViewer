@@ -246,6 +246,7 @@ long rnc_unpack (void *packed, void *unpacked
 #endif
     if (blong(input) != RNC_SIGNATURE)
 	return RNC_FILE_IS_NOT_RNC;
+	
     ret_len = blong (input+4);
     outputend = output + ret_len;
     inputend = input + 18 + blong(input+8);
