@@ -20,6 +20,13 @@
     </target>
 
     <target name="build" depends="init">
+        <fail message="You need to provide apache commons io (${commons.jar}) in this directory.">
+            <condition>
+                <not>
+                    <available classname="org.apache.commons.io.EndianUtils" classpath="${commons.jar}" />
+                </not>
+            </condition>
+        </fail>
         <javac classpath="${commons.jar}" debug="true" debuglevel="lines" srcdir="${src.dir}" destdir="${classes.dir}" />
     </target>
 

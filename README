@@ -1,4 +1,70 @@
-* run THViewer.jar with java
-* the application will ask you for the location of your Theme Hospital directory
-* source code is included in the jar
-* for THViewer to be able to automatically decompress RNC-files, dernc must be available on your PATH
+THViewer
+========
+Copyright (c) 2007-2008, Alexander Gitter
+
+Contents
+
+1. Description
+2. Project Web Site and contact info
+3. Requirements
+4. Installation
+5. Running
+
+
+--------------
+1. Description
+--------------
+
+THViewer is a program that enables you to show graphics, animations and other
+resources from the Theme Hospital game. It is written in the Java programming
+language.
+
+THViewer is distributed under the terms of the BSD License. See COPYING for more
+information.
+
+------------------------------------
+2. Project Web Site and contact info
+------------------------------------
+
+More information, the latest releases can be found at: 
+  http://connection-endpoint.de/category/theme-hospital/
+
+I can be contacted at: qwertz1230 [at] googlemail [dot] com.
+
+---------------
+3. Requirements
+---------------
+
+THViewer should be able to run without problems on all the major platforms
+supporting Java (GNU/Linux, *BSD, Solaris, Win32).
+
+To build and run the current version of THViewer you need:
+  * Apache Commons IO (http://commons.apache.org/io/)
+  * A Java SDK >= 1.5 (http://java.sun.com/)
+  * Apache Ant (http://ant.apache.org/)
+    
+Development is done using the latest stable versions of the above libraries. 
+Although using an older version may be OK, there is no guarantee that there 
+will not be problems.
+
+---------------
+4. Installation
+---------------
+  * get Apache Commons IO and unpack the file "commons-io-1.4.jar" into the
+    project's root directory
+  * run ant
+  * copy the contents from ./build/dist/ whereever you see them fit
+  
+----------
+5. Running
+----------
+You can run the program by either
+  * using he build script - "ant run"
+  * directly running the THViewer.jar (will be created in ./build/dist/) -
+    "java -jar THViewer.jar"
+  
+THViewer will ask you for the Theme Hospital (usually something like
+C:\Program Files\Bullfrog\Hospital). The main window allows you to open the
+supported resource files. So if for instace you want to view all of theme
+hospitals mouse pointer sprites, you would choose "Viewer > Open" and then
+select the file "data/mpointer.dat".
