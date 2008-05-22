@@ -13,6 +13,8 @@ package th.reader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Hashtable;
+
 import javax.swing.JComponent;
 import javax.swing.JFileChooser;
 import javax.xml.parsers.SAXParser;
@@ -37,13 +39,20 @@ import th.view.StringsPanel;
 public class SmartReader extends DefaultHandler {
     private File themeHospitalDir = null;
     private JFileChooser fc = new JFileChooser();
+    private Hashtable<String, File> table;
 
     public SmartReader(File thDir) {
         this.themeHospitalDir = thDir;
+        initMapping();
     }
 
     public SmartReader() {
         getTHDir();
+        initMapping();
+    }
+    
+    void initMapping() {
+        table = FileScanner.scanDirectory(getTHDir());
     }
 
     public JComponent open() {
@@ -122,7 +131,7 @@ public class SmartReader extends DefaultHandler {
     }
 
     private File openFromString(String filename) {
-        File file = new File(getTHDir().getPath() + File.separator + filename);
+        File file = table.get(filename);
         dernc(file);
         return file;
     }
