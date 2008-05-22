@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<project name="THViewer" basedir="." default="all">
+
+    <property name="src.dir"     value="src" />
+    <property name="build.dir"   value="build" />
+    <property name="classes.dir" value="${build.dir}/classes" />
+    <property name="dist.dir"    value="${build.dir}/dist" />
+    <property name="commons.jar" value="commons-io-1.4.jar" />
+
+    <property name="main-class"  value="th.Main" />
+
+    <target name="init">
+        <mkdir dir="${build.dir}" />
+        <mkdir dir="${classes.dir}" />
+        <mkdir dir="${dist.dir}" />
+    </target>
+
+    <target name="clean">
+        <delete dir="${build.dir}" />
+    </target>
+
+    <target name="build" depends="init">
+        <javac classpath="${commons.jar}" debug="true" debuglevel="lines" srcdir="${src.dir}" destdir="${classes.dir}" />
+    </target>
+
+    <target name="dist" depends="build">
+        <jar destfile="${dist.dir}/${ant.project.name}.jar" basedir="${classes.dir}">
+            <manifest>
+                <attribute name="Main-Class" value="${main-class}" />
+                <attribute name="Class-Path" value="${commons.jar}" />
+            </manifest>
+        </jar>
+        <copy file="FileList.xml" todir="${dist.dir}" />
+        <copy file="LICENSE" todir="${dist.dir}" />
+        <copy file="README" todir="${dist.dir}" />
+        <copy file="${commons.jar}" todir="${dist.dir}" />
+    </target>
+
+    <target name="run" depends="dist">
+        <java jar="${dist.dir}/${ant.project.name}.jar" fork="true" />
+    </target>
+
+    <target name="all" depends="dist" />
+
+</project>
+

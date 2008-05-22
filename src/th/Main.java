@@ -128,8 +128,15 @@ public class Main extends JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws Exception {
-        Main frame = Main.getInstance(args[0]);
+    public static void main(String[] args) {
+        Main frame;
+    
+        if(args.length == 0) {
+            frame = Main.getInstance();
+        } else {
+            frame = Main.getInstance(args[0]);
+        }
+            
         frame.setSize(600, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
