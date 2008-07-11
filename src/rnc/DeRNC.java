@@ -10,11 +10,10 @@
 
 package rnc;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class DeRNC {
@@ -65,9 +64,6 @@ public class DeRNC {
     }
 
     static void rnc_unpack(CharPointer input, CharPointer output) throws IOException {
-        int ppos = 0;
-        int upos = 0;
-
         input.inc(18);
         
         BitStream bis = new BitStream(input);

@@ -14,9 +14,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.util.Vector;
 
 public class ColorImageCreator {
     
