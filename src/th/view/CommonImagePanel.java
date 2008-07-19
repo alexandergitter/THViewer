@@ -10,19 +10,17 @@
 
 package th.view;
 
-import java.awt.Color;
-import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 import th.data.THPalette;
 import th.data.TabEntry;
-import th.reader.ChunksReader;
 import th.reader.PaletteReader;
 import th.reader.TabReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public abstract class CommonImagePanel extends DividePanel {
     protected File paletteFile;
@@ -43,7 +41,7 @@ public abstract class CommonImagePanel extends DividePanel {
         if(entries != null)
             return;
         
-        FileInputStream is = new FileInputStream(tabFile);
+        ABuffer is = new FileBuffer(tabFile);
         entries = TabReader.readAll(is);
         is.close();
         

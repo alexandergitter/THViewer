@@ -19,14 +19,16 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Vector;
-import th.data.THPalette;
+
 import th.data.SpriteElement;
+import th.data.THPalette;
 import th.data.TabEntry;
+import util.ABuffer;
 
 public class ChunksReader {
     private static HashMap<Integer, BufferedImage> cache = new HashMap<Integer, BufferedImage>();
     
-    public static Vector<BufferedImage> readAll(FileInputStream chunkStream, FileInputStream tabStream, THPalette palette, Color background) throws IOException {
+    public static Vector<BufferedImage> readAll(FileInputStream chunkStream, ABuffer tabStream, THPalette palette, Color background) throws IOException {
         Vector<TabEntry> entries = TabReader.readAll(tabStream);
         
         Vector<BufferedImage> res = new Vector<BufferedImage>();

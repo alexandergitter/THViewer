@@ -16,18 +16,21 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.Vector;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import th.data.SpriteElement;
 import th.data.TabEntry;
 import th.reader.ChunksReader;
 import th.reader.SpriteElementReader;
 import th.reader.TabReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public final class SpriteElementPanel extends CommonImagePanel {
 
@@ -69,7 +72,7 @@ public final class SpriteElementPanel extends CommonImagePanel {
         loadElements(start);
         panel.removeAll();
         
-        FileInputStream tabStream = new FileInputStream(tabFile);
+        ABuffer tabStream = new FileBuffer(tabFile);
         FileInputStream is = new FileInputStream(chunksFile);
         
         for(int i = 0; i < perPage; ++i) {

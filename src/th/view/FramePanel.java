@@ -16,12 +16,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
+
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import th.data.SpriteElement;
 import th.data.THFrame;
 import th.reader.FramesReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public final class FramePanel extends CommonImagePanel {
 
@@ -76,7 +80,7 @@ public final class FramePanel extends CommonImagePanel {
         loadFrames(start);
         panel.removeAll();
         
-        FileInputStream tabStream = new FileInputStream(tabFile);
+        ABuffer tabStream = new FileBuffer(tabFile);
         FileInputStream chunksStream = new FileInputStream(chunksFile);
         
         int layerid = 0;

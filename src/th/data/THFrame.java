@@ -18,9 +18,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
-import javax.imageio.ImageIO;
+
 import th.reader.ChunksReader;
 import th.reader.TabReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public class THFrame {
     
@@ -64,22 +66,7 @@ public class THFrame {
         return flags;
     }
     
-    /*public int getMaxSpriteWidth(int maxXOffset, FileInputStream tabStream) throws IOException {
-        int maxWidth = 0;
-        
-        for(SpriteElement element: elements) {
-            int xpos = 
-            TabEntry en = TabReader.readByPosition(tabStream, element.getPos());
-            
-            if((element.getOffsetx() + en.getWidth()) > maxXOffset) {
-                maxXOffset = element.getOffsetx() + en.getWidth();
-            }
-        }
-        
-        return maxWidth;
-    }*/
-    
-    public int getYOverrun(int height, int minYOffset, FileInputStream tabStream) throws IOException {
+    public int getYOverrun(int height, int minYOffset, ABuffer tabStream) throws IOException {
         int maxHeight = 0;
         
         for(SpriteElement element: elements) {
@@ -94,7 +81,7 @@ public class THFrame {
         return maxHeight - height;
     }
     
-    public int getYUnderrun(int height, int minYOffset, FileInputStream tabStream) throws IOException {
+    public int getYUnderrun(int height, int minYOffset, ABuffer tabStream) throws IOException {
         int underrun = 0;
         
         for(SpriteElement element: elements) {
@@ -109,7 +96,7 @@ public class THFrame {
         return -underrun;
     }
     
-    public int getXOverrun(int width, int maxXOffset, FileInputStream tabStream) throws IOException {
+    public int getXOverrun(int width, int maxXOffset, ABuffer tabStream) throws IOException {
         int maxWidth = 0;
         
         for(SpriteElement element: elements) {
@@ -124,7 +111,7 @@ public class THFrame {
         return maxWidth - width;
     }
     
-    public int getXUnderrun(int width, int maxXOffset, FileInputStream tabStream) throws IOException {
+    public int getXUnderrun(int width, int maxXOffset, ABuffer tabStream) throws IOException {
         int underrun = 0;
         
         for(SpriteElement element: elements) {
@@ -151,7 +138,7 @@ public class THFrame {
         elements.add(element);
     }
     
-    public int getMaxXOffset(FileInputStream tabStream) throws IOException {
+    public int getMaxXOffset(ABuffer tabStream) throws IOException {
         int maxXOffset = 0;
         
         for(SpriteElement element: elements) {
@@ -165,7 +152,7 @@ public class THFrame {
         return maxXOffset;
     }
     
-    public int getMinYOffset(FileInputStream tabStream) throws IOException {
+    public int getMinYOffset(ABuffer tabStream) throws IOException {
         int minYOffset = 256;
         
         for(SpriteElement element: elements) {
@@ -178,7 +165,7 @@ public class THFrame {
         return minYOffset;
     }
     
-    public Image render(FileInputStream tabStream, FileInputStream chunksStream, THPalette palette, int id) throws IOException {
+    public Image render(ABuffer tabStream, FileInputStream chunksStream, THPalette palette, int id) throws IOException {
         int maxXOffset = getMaxXOffset(tabStream);
         int minYOffset = getMinYOffset(tabStream);
                 
@@ -204,10 +191,8 @@ public class THFrame {
     
     public void renderInMap(Tile tile, Graphics g, int x, int y, boolean mouseOver) throws IOException {
         ObjectInfo oi = tile.getObjectInfo();
-        FileInputStream tabStream = new FileInputStream(tabFile);
+        ABuffer tabStream = new FileBuffer(tabFile);
         FileInputStream chunksStream = new FileInputStream(chunksFile);
-        //int maxXOffset = getMaxXOffset(tabStream);
-        //int minYOffset = getMinYOffset(tabStream);
         
         for(SpriteElement element: elements) {
             if(element.getId() > 1 && oi.getLayerId(element.getLayerClass()) != element.getId())
@@ -215,10 +200,7 @@ public class THFrame {
             
             TabEntry en = TabReader.readByPosition(tabStream, element.getTabPos(), 0);
             Image img = ChunksReader.readByEntry(chunksStream, en, palette, new Color(0, 0, 0, 0), element.getFlags());
-            
-            //int x1 = width - maxXOffset + element.getOffsetx();
-            
-            //int y1 = element.getOffsety() - minYOffset;
+
             if(mouseOver)
                 g.drawImage(RedFilter.createRedImage(img), x + element.getOffsetx(), y + element.getOffsety(), null);
             else
@@ -229,7 +211,7 @@ public class THFrame {
         chunksStream.close();
     }
     
-    public Image renderInAnim(FileInputStream tabStream, FileInputStream chunksStream, THPalette palette, int id, int width, int height, int maxXOffset, int minYOffset, int xunderrun, int yunderrun) throws IOException {
+    public Image renderInAnim(ABuffer tabStream, FileInputStream chunksStream, THPalette palette, int id, int width, int height, int maxXOffset, int minYOffset, int xunderrun, int yunderrun) throws IOException {
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics g = bi.getGraphics();        
         

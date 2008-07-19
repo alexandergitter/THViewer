@@ -11,15 +11,17 @@
 package th.reader;
 
 import java.awt.Color;
-import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
+
 import org.apache.commons.io.EndianUtils;
-import th.data.THPalette;
+
 import th.data.THMap;
+import th.data.THPalette;
 import th.data.Tile;
+import util.ABuffer;
 
 public class LevelReader {
 
@@ -59,7 +61,7 @@ public class LevelReader {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
     };
     
-    public static THMap read(FileInputStream mapStream, FileInputStream tabStream, FileInputStream chunkStream, THPalette palette, Color background) throws IOException {
+    public static THMap read(FileInputStream mapStream, ABuffer tabStream, FileInputStream chunkStream, THPalette palette, Color background) throws IOException {
         Vector<BufferedImage> tiles = ChunksReader.readAll(chunkStream, tabStream, palette, background);
         THMap result = new THMap();
         

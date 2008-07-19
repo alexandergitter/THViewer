@@ -15,12 +15,16 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import th.data.THPalette;
+
 import th.data.THMap;
+import th.data.THPalette;
 import th.reader.LevelReader;
 import th.reader.PaletteReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public class MapPanel extends JPanel {
     private JScrollPane scrollPane;
@@ -32,7 +36,7 @@ public class MapPanel extends JPanel {
         
         try {
             FileInputStream mapStream = new FileInputStream(mapFile);
-            FileInputStream tabStream = new FileInputStream(tabFile);
+            ABuffer tabStream = new FileBuffer(tabFile);
             FileInputStream chunksStream = new FileInputStream(chunksFile);
             FileInputStream paletteStream = new FileInputStream(paletteFile);
         

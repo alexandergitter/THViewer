@@ -13,12 +13,15 @@ package th.reader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
+
 import org.apache.commons.io.EndianUtils;
+
 import th.data.TabEntry;
+import util.ABuffer;
 
 public class TabReader {
-    public static TabEntry readByPosition(FileInputStream is, int position, int consecNumber) throws IOException {
-        is.getChannel().position(position);
+    public static TabEntry readByPosition(ABuffer is, int position, int consecNumber) throws IOException {
+        is.seek(position);
         
         TabEntry e = new TabEntry(position, 0, 0, 0, consecNumber);
             
@@ -29,7 +32,7 @@ public class TabReader {
         return e;
     }
     
-    public static Vector<TabEntry> readAll(FileInputStream is) throws IOException {
+    public static Vector<TabEntry> readAll(ABuffer is) throws IOException {
         Vector<TabEntry> res = new Vector<TabEntry>();
         int pos = 0;
         

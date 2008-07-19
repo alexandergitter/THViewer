@@ -15,12 +15,16 @@ import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import th.data.THPalette;
+
 import th.data.THMap;
+import th.data.THPalette;
 import th.reader.PaletteReader;
 import th.reader.SavegameReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public class SavegamePanel extends JPanel {
     private JScrollPane scrollPane;
@@ -44,7 +48,7 @@ public class SavegamePanel extends JPanel {
             FileInputStream frameStream = new FileInputStream(frameFile);
             FileInputStream frameListStream = new FileInputStream(frameListFile);
             FileInputStream saveStream = new FileInputStream(saveFile);
-            FileInputStream blockTabStream = new FileInputStream(blockTabFile);
+            ABuffer blockTabStream = new FileBuffer(blockTabFile);
             FileInputStream blockChunksStream = new FileInputStream(blockChunksFile);
         
             mapComponent = SavegameReader.read(frameStream, frameListStream, frameElementStream, frameTabFile, frameChunksFile, framePalette, saveStream, blockTabStream, blockChunksStream, blockPalette, new Color(0, 0, 0, 0));

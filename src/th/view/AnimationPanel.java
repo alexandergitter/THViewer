@@ -16,14 +16,17 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
+
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.Timer;
+
 import org.apache.commons.io.EndianUtils;
+
 import th.data.THAnimation;
 import th.data.THFrame;
 import th.reader.FramesReader;
+import util.ABuffer;
+import util.FileBuffer;
 
 public class AnimationPanel extends CommonImagePanel {
     
@@ -75,7 +78,7 @@ public class AnimationPanel extends CommonImagePanel {
         int animCount = (int)(startFile.length() / 4);
         
         FileInputStream startStream = new FileInputStream(startFile);
-        FileInputStream tabStream = new FileInputStream(tabFile);
+        ABuffer tabStream = new FileBuffer(tabFile);
         FileInputStream chunkStream = new FileInputStream(chunksFile);
         FileInputStream frameStream = new FileInputStream(framesFile);
         FileInputStream listStream = new FileInputStream(listFile);

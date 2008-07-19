@@ -16,16 +16,19 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Vector;
+
 import org.apache.commons.io.EndianUtils;
+
 import th.data.ObjectInfo;
 import th.data.THFrame;
 import th.data.THMap;
 import th.data.THPalette;
 import th.data.Tile;
+import util.ABuffer;
 
 public class SavegameReader {
 
-    public static THMap read(FileInputStream frameStream, FileInputStream frameListStream, FileInputStream frameElementStream, File frameTabFile, File frameChunksFile, THPalette framePalette, FileInputStream saveStream, FileInputStream blockTabStream, FileInputStream blockChunkStream, THPalette blockPalette, Color background) throws IOException {
+    public static THMap read(FileInputStream frameStream, FileInputStream frameListStream, FileInputStream frameElementStream, File frameTabFile, File frameChunksFile, THPalette framePalette, FileInputStream saveStream, ABuffer blockTabStream, FileInputStream blockChunkStream, THPalette blockPalette, Color background) throws IOException {
         Vector<BufferedImage> tiles = ChunksReader.readAll(blockChunkStream, blockTabStream, blockPalette, background);
         THMap result = new THMap();
         
