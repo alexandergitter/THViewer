@@ -7,7 +7,7 @@
     <property name="dist.dir"    value="${build.dir}/dist" />
     <property name="commons.jar" value="commons-io-1.4.jar" />
 
-    <property name="main-class"  value="th.Main" />
+    <property name="main-class"  value="thv.th.Main" />
 
     <target name="init">
         <mkdir dir="${build.dir}" />
