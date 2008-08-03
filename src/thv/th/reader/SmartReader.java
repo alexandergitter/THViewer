@@ -10,13 +10,14 @@
 
 package thv.th.reader;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Hashtable;
 
 import javax.swing.JComponent;
-import javax.swing.JFileChooser;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 
@@ -25,10 +26,10 @@ import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.DefaultHandler;
 
 import rnc.DeRNC;
-import thv.th.Main;
 import thv.th.view.AnimationPanel;
 import thv.th.view.FramePanel;
 import thv.th.view.ImagePanel;
+import thv.th.view.MainWindow;
 import thv.th.view.MapPanel;
 import thv.th.view.PalettePanel;
 import thv.th.view.RawPanel;
@@ -37,29 +38,33 @@ import thv.th.view.SoundPanel;
 import thv.th.view.SpriteElementPanel;
 import thv.th.view.StringsPanel;
 
-public class SmartReader extends DefaultHandler {
+public class SmartReader
+implements ActionListener {
     private File themeHospitalDir = null;
-    private JFileChooser fc = new JFileChooser();
     private Hashtable<String, File> table;
+    private MainWindow mainWindow;
 
-    public SmartReader(File thDir) {
+    public SmartReader(File thDir, MainWindow mainWindow) {
+    	this.mainWindow = mainWindow;
         this.themeHospitalDir = thDir;
         initMapping();
     }
 
-    public SmartReader() {
+    /*public SmartReader(MainWindow mainWindow) {
+    	this.mainWindow = mainWindow;
         getTHDir();
         initMapping();
-    }
+    }*/
     
     void initMapping() {
-        table = FileScanner.scanDirectory(getTHDir());
+        //table = FileScanner.scanDirectory(getTHDir());
+    	table = FileScanner.scanDirectory(this.themeHospitalDir);
     }
 
     public JComponent open() {
-        File f = queryOpen("Choose file to open");
+        File thDir = this.themeHospitalDir; //getTHDir();
+        File f = mainWindow.queryOpen("Choose file to open", thDir);
         dernc(f);
-        File thDir = getTHDir();
         Attributes as = new FileTypeExtractor().getAttributes(f);
 
         if (as.getValue("type").equals("chunks")) {
@@ -159,30 +164,18 @@ public class SmartReader extends DefaultHandler {
         }
     }
 
-    private File getTHDir() {
-        if (themeHospitalDir != null)
-            return themeHospitalDir;
 
-        fc.setDialogTitle("Select your Theme Hospital Directory");
-        fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
-        int t = fc.showOpenDialog(null);
 
-        if (t == JFileChooser.APPROVE_OPTION) {
-            themeHospitalDir = fc.getSelectedFile();
-        }
-
-        return themeHospitalDir;
-    }
-
-    private File queryOpen(String title) {
-        fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-        fc.setDialogTitle(title);
-        fc.setCurrentDirectory(getTHDir());
-        fc.showOpenDialog(Main.getInstance());
-
-        return fc.getSelectedFile();
-    }
+    /**
+     * User chose "Open File..." from the Menu.
+     */
+	public void actionPerformed(ActionEvent arg0) {
+		JComponent c = open();
+		if (c != null) {
+			mainWindow.setContent(c);
+		}
+	}
 }
 
 class FileTypeExtractor extends DefaultHandler {
