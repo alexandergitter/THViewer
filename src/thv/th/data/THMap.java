@@ -183,7 +183,8 @@ public class THMap extends JComponent implements MouseListener {
                 sb.append(tiles[mouseTile.x][mouseTile.y].getObjectInfo().getPosition());
             }
             
-            Main.getInstance().setTitle(sb.toString());
+            // TODO
+            //Main.getInstance().setTitle(sb.toString());
             
             tileRect = calcScreenRectangle(mouseTile.x, mouseTile.y, screen.x, screen.y, tiles[mouseTile.x][mouseTile.y]);
             renderTile(g, tiles[mouseTile.x][mouseTile.y], tileRect.x, tileRect.y, mouseTile.x, mouseTile.y, true, compoG);

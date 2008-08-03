@@ -13,7 +13,6 @@ package thv.th.view;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import javax.swing.JButton;
 import javax.swing.JList;
@@ -23,18 +22,17 @@ import javax.swing.ListSelectionModel;
 
 import thv.th.data.Sample;
 import thv.th.data.THSound;
-import thv.th.reader.SoundReader;
 
+@SuppressWarnings("serial")
 public class SoundPanel extends JPanel implements ActionListener {
     private THSound sound;
     private JList listWidget;
     
     /** Creates a new instance of SoundPanel */
-    public SoundPanel(File soundFile) {
+    public SoundPanel(THSound sound) {
         this.setLayout(new FlowLayout());
-        try {
-        this.sound = SoundReader.readAll(soundFile);
-        } catch(Exception e) { e.printStackTrace(); }
+        this.sound = sound;
+
         listWidget = new JList(sound.getSamples());
         listWidget.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         add(new JScrollPane(listWidget));

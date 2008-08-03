@@ -57,7 +57,7 @@ public class SavegamePanel extends JPanel {
             frameListStream.close();
             frameElementStream.close();
             saveStream.close();
-            blockTabStream.close();
+            //blockTabStream.close();
             blockChunksStream.close();
         
             scrollPane = new JScrollPane(mapComponent, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);

@@ -8,7 +8,7 @@
  All rights reserved.
 */
 
-package thv.th.reader;
+package thv.th;
 
 import java.io.File;
 import java.util.Hashtable;
@@ -28,7 +28,7 @@ public class FileScanner {
             curDir = stack.pop();
             
             for(File f: curDir.listFiles()) {
-                if(f.isDirectory()) {
+                if(f.isDirectory() && !f.getName().equalsIgnoreCase("datam")) {
                     stack.push(f);
                 } else {
                     result.put(f.getName().toLowerCase(), f);

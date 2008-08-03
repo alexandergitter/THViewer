@@ -13,20 +13,19 @@ package thv.th.reader;
 import java.io.IOException;
 import java.util.Vector;
 
-import org.apache.commons.io.EndianUtils;
-
 import thv.th.data.TabEntry;
 import thv.util.ABuffer;
 
 public class TabReader {
-    public static TabEntry readByPosition(ABuffer is, int position, int consecNumber) throws IOException {
-        is.seek(position);
+    public static TabEntry readByPosition(ABuffer buffer, int position, int consecNumber)
+    throws IOException {
+        //buffer.seek(position);
         
         TabEntry e = new TabEntry(position, 0, 0, 0, consecNumber);
             
-        e.setChunksPos( EndianUtils.readSwappedInteger(is) );
-        e.setWidth( is.read() );
-        e.setHeight( is.read() );
+        e.setChunksPos( buffer.getSwappedInteger(position) );
+        e.setWidth( buffer.get(position+4) );
+        e.setHeight( buffer.get(position+5) );
         
         return e;
     }
@@ -37,7 +36,7 @@ public class TabReader {
         
         int consecNumber = 0;
         
-        while(is.available() > 0) {
+        while(pos < is.getSize()) {
             TabEntry t = TabReader.readByPosition(is, pos, consecNumber);
             pos += 6;
             if(t.getWidth() == 0 || t.getHeight() == 0) {

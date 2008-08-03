@@ -207,7 +207,7 @@ public class THFrame {
                 g.drawImage(img, x + element.getOffsetx(), y + element.getOffsety(), null);
         }
         
-        tabStream.close();
+        //tabStream.close();
         chunksStream.close();
     }
     

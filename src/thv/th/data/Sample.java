@@ -11,18 +11,18 @@
 package thv.th.data;
 
 public class Sample {
-    private String filename;
+    private String originalFilename;
     private int position;
     private int length;
     
-    public Sample(String filename, int position, int length) {
-        this.filename = filename;
+    public Sample(String originalFilename, int position, int length) {
+        this.originalFilename = originalFilename;
         this.position = position;
         this.length = length;
     }
     
     public String toString() {
-        return this.filename;
+        return this.originalFilename;
     }
     
     public int getPosition() {

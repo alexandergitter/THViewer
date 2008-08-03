@@ -94,7 +94,7 @@ public final class FramePanel extends CommonImagePanel {
         }
 
         chunksStream.close();
-        tabStream.close();
+        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }

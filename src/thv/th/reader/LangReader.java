@@ -18,7 +18,15 @@ import java.util.Vector;
 import org.apache.commons.io.EndianUtils;
 
 public class LangReader {
-    public static Vector<Vector<String>> read(FileInputStream is) throws IOException {
+	/**
+	 * Reads in all the strings of a language-file.
+	 * 
+	 * @param is
+	 * @return
+	 * @throws IOException
+	 */
+    public static Vector<Vector<String>> read(FileInputStream is)
+    throws IOException {
         int sections = EndianUtils.readSwappedShort(is);
         
         Vector<Integer> counts = new Vector<Integer>();

@@ -12,8 +12,6 @@ package thv.th;
 
 import javax.swing.JFrame;
 
-import thv.th.view.MainWindow;
-
 public class Main {
     /**
      * @param args the command line arguments

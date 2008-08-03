@@ -135,7 +135,7 @@ public class AnimationPanel extends CommonImagePanel {
             res.add(an);
         }
         
-        tabStream.close();
+        //tabStream.close();
         chunkStream.close();
         frameStream.close();
         listStream.close();

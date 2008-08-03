@@ -96,7 +96,7 @@ public final class SpriteElementPanel extends CommonImagePanel {
         }
 
         is.close();
-        tabStream.close();
+        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }

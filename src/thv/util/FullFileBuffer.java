@@ -1,6 +1,5 @@
 package thv.util;
 
-import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -8,38 +7,24 @@ import java.io.IOException;
 
 public class FullFileBuffer
 extends ABuffer {
-	ByteArrayInputStream buffer = null;
+	byte[] buffer = null;
 	
 	public FullFileBuffer(File backEndFile)
 	throws FileNotFoundException, IOException {
-		byte[] temp = new byte[(int)backEndFile.length()];
+		buffer = new byte[(int)backEndFile.length()];
 		
 		FileInputStream fis = new FileInputStream(backEndFile);
-		fis.read(temp);
+		fis.read(buffer);
 		fis.close();
-		
-		buffer = new ByteArrayInputStream(temp);
 	}
 	
 	@Override
-	public int available() {
-		return buffer.available();
+	public int getSize() {
+		return buffer.length;
 	}
 
 	@Override
-	public void seek(long pos) throws IOException {
-		buffer.reset();
-		buffer.skip(pos);
+	public int get(int position) throws IOException {
+		return buffer[position];
 	}
-
-	@Override
-	public int read() throws IOException {
-		return buffer.read();
-	}
-
-	@Override
-	public void close() throws IOException {
-		buffer.close();
-	}
-
 }

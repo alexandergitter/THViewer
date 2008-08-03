@@ -24,7 +24,9 @@ import javax.swing.JLabel;
 import thv.th.data.THPalette;
 import thv.th.reader.PaletteReader;
 
-public class PalettePanel extends DividePanel {
+@SuppressWarnings("serial")
+public class PalettePanel
+extends DividePanel {
     
     protected File paletteFile;
     

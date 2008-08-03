@@ -21,7 +21,8 @@ import thv.th.data.Sample;
 import thv.th.data.THSound;
 
 public class SoundReader {
-    public static THSound readAll(File soundFile) throws FileNotFoundException, IOException {
+    public static THSound readAll(File soundFile)
+    throws FileNotFoundException, IOException {
         THSound result = new THSound(soundFile);
         
         FileInputStream fis = new FileInputStream(soundFile);

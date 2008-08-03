@@ -7,31 +7,26 @@ import java.io.IOException;
 
 public class FileBuffer extends ABuffer {
 
-	FileInputStream fis;
+	File file;
 	
 	public FileBuffer(File file)
 	throws FileNotFoundException {
-		this.fis = new FileInputStream(file);
+		this.file = file;
 	}
 	
 	@Override
-	public int available() throws IOException {
-		return fis.available();
+	public int getSize() throws IOException {
+		return (int)file.length();
 	}
 
 	@Override
-	public void seek(long pos) throws IOException {
+	public int get(int pos) throws IOException {
+		FileInputStream fis = new FileInputStream(file);
 		fis.getChannel().position(pos);
-	}
-
-	@Override
-	public int read() throws IOException {
-		return fis.read();
-	}
-
-	@Override
-	public void close() throws IOException {
+		
+		int result = fis.read();
 		fis.close();
+		
+		return result;
 	}
-
 }
