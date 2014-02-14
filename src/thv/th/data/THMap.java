@@ -260,6 +260,7 @@ public class THMap extends JComponent implements MouseListener {
             off = t.getHeight() - t.getLayer0().getHeight(null);
             
             if(mouseOver) {
+            	System.out.println(oi.getPosition());
                 oi.getFrame().renderInMap(t, compoG, -100, 200, false);
                 oi.getFrame().renderInMap(t, g, x - 109, y - 186 + off, true);
             } else {

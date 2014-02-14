@@ -26,7 +26,7 @@ public class RawReader {
                   
         for(int y = 0; y < height; ++y) {
             for(int x = 0; x < width; ++x) {
-                int a = rawStream.read();
+                int a = rawStream.read() & 0xff;
                 bi.setRGB(x, y, palette.elementAt(a).getRGB());
             }
         }

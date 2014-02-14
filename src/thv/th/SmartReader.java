@@ -69,6 +69,7 @@ implements ActionListener {
         Attributes as = new FileTypeExtractor().getAttributes(f);
 
         if (as.getValue("type").equals("chunks")) {
+        	dernc(f);
             File tabFile = fileFromString(as.getValue("tab"));
             File paletteFile = fileFromString(as.getValue("palette"));
             return new ImagePanel(paletteFile, f, tabFile);
@@ -133,16 +134,17 @@ implements ActionListener {
     
     private SoundPanel createSoundPanel(File soundsFile)
     throws IOException {
-    	THSound sounds = SoundReader.readAll(soundsFile);
+    	/*THSound sounds = SoundReader.readAll(soundsFile);
     	
-    	return new SoundPanel(sounds);
+    	return new SoundPanel(sounds);*/
+    	return null;
     }
     
     private StringsPanel createStringsPanel(File stringsFile)
     throws IOException {
-    	FileInputStream stringsStream = new FileInputStream(stringsFile);
-        Vector<Vector<String>> sections = LangReader.read(stringsStream);
-        stringsStream.close();
+    	dernc(stringsFile);
+    	ABuffer buf = new FullFileBuffer(stringsFile);
+        Vector<Vector<String>> sections = LangReader.read(buf);
         
         return new StringsPanel(sections);
     }
@@ -152,6 +154,7 @@ implements ActionListener {
     	File tabFile = fileFromString(as.getValue("tab"));
         File paletteFile = fileFromString(as.getValue("palette"));
         File chunksFile = fileFromString(as.getValue("chunks"));
+        dernc(mapFile);
         
         FileInputStream mapStream = new FileInputStream(mapFile);
         ABuffer tabStream = new FullFileBuffer(tabFile);
@@ -178,6 +181,7 @@ implements ActionListener {
         int height = Integer.parseInt(as.getValue("height"));
         
         FileInputStream paletteStream = new FileInputStream(paletteFile);
+        dernc(rawFile);
         FileInputStream rawStream = new FileInputStream(rawFile);
     
         THPalette palette = PaletteReader.readAll(paletteStream);
@@ -199,21 +203,16 @@ implements ActionListener {
 
     private void dernc(File file) {
         try {
-            FileInputStream r = new FileInputStream(file);
-            int c = r.read();
+            FileInputStream in = new FileInputStream(file);
+            int r = in.read();
+            int n = in.read();
+            int c = in.read();
+            in.close();
 
-            if (c == 'R') {
-                c = r.read();
-
-                if (c == 'N') {
-                    c = r.read();
-
-                    if (c == 'C') {
-                    	// 10 is missing - the real RNC magic number is {'R', 'N', 'C', 1, 0}
-                        // unpack the file in place
-                        DeRNC.main_unpack(file, file);
-                    }
-                }
+            if (r == 'R' && n == 'N' && c == 'C') {
+            	// 10 is missing - the real RNC magic number is {'R', 'N', 'C', 1, 0}
+                // unpack the file in place
+                DeRNC.main_unpack(file, file);
             }
         } catch (IOException e) {
             System.err.println(e);

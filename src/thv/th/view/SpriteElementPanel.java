@@ -32,7 +32,9 @@ import thv.th.reader.TabReader;
 import thv.util.ABuffer;
 import thv.util.FileBuffer;
 
-public final class SpriteElementPanel extends CommonImagePanel {
+@SuppressWarnings("serial")
+public final class SpriteElementPanel
+extends CommonImagePanel {
 
     protected File spriteElementFile;
     protected Vector<SpriteElement> elements;    

@@ -59,11 +59,13 @@ public class DeRNC {
      * Return the uncompressed length of a packed data block, or a negative
      * error code.
      */
-    public static int rnc_ulen(CharPointer p) throws IllegalArgumentException {
+    protected static int rnc_ulen(CharPointer p)
+    throws IllegalArgumentException {
         return blong(new CharPointer(p, 4));
     }
 
-    static void rnc_unpack(CharPointer input, CharPointer output) throws IOException {
+    protected static void rnc_unpack(CharPointer input, CharPointer output)
+    throws IOException {
         input.inc(18);
         
         BitStream bis = new BitStream(input);
@@ -138,7 +140,7 @@ public class DeRNC {
     /*
      * Return the big-endian longword at p.
      */
-    static int blong(CharPointer p) {
+    protected static int blong(CharPointer p) {
         int n;
         n = p.get(0);
         n = (n << 8) | p.get(1);
@@ -150,7 +152,7 @@ public class DeRNC {
     /*
      * Return the little-endian word at p.
      */
-    static int lword(CharPointer p) {
+    protected static int lword(CharPointer p) {
         int n;
         n = p.get(1);
         n = (n << 8) | p.get(0);

@@ -22,7 +22,8 @@ import thv.th.reader.TabReader;
 import thv.util.ABuffer;
 import thv.util.FileBuffer;
 
-public abstract class CommonImagePanel extends DividePanel {
+public abstract class CommonImagePanel
+extends DividePanel {
     protected File paletteFile;
     protected File chunksFile;
     protected File tabFile;

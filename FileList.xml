@@ -43,7 +43,7 @@
     <file type="raw" palette="town01v.pal" width="640" height="480">town01v.dat</file>
     <file type="raw" palette="title01v.pal" width="640" height="480">title01v.dat</file>
     <file type="raw" palette="mpalette.dat" width="32" height="665">face01m.dat</file>
-    
+    <file type="chunks" palette="mpalette.dat" tab="font00v.tab">font00v.dat</file>
     <file type="chunks" tab="money01v.tab" palette="mpalette.dat">money01v.dat</file>
     <file type="chunks" tab="vblk-0.tab" palette="mpalette.dat">vblk-0.dat</file>
     <file type="chunks" tab="mblk-0.tab" palette="mpalette.dat">mblk-0.dat</file>

@@ -10,24 +10,23 @@
 
 package thv.th.reader;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.Vector;
+
 import org.apache.commons.io.EndianUtils;
 
+import thv.util.ABuffer;
+
 public class LangReader {
-	/**
-	 * Reads in all the strings of a language-file.
-	 * 
-	 * @param is
-	 * @return
-	 * @throws IOException
-	 */
-    public static Vector<Vector<String>> read(FileInputStream is)
+
+    public static Vector<Vector<String>> read(ABuffer raw)
     throws IOException {
-        int sections = EndianUtils.readSwappedShort(is);
+    	InputStream is = raw.createInputStream();
+    	
+    	int sections = EndianUtils.readSwappedShort(is);
         
         Vector<Integer> counts = new Vector<Integer>();
         
@@ -48,6 +47,8 @@ public class LangReader {
             
             res.add(temp);
         }
+        
+        is.close();
 
         return res;
     }

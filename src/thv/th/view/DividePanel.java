@@ -19,7 +19,9 @@ import javax.swing.JScrollPane;
 
 import thv.th.FlowScrollLayout;
 
-public abstract class DividePanel extends JPanel implements SwitchListener{
+public abstract class DividePanel
+extends JPanel
+implements ISwitchListener {
     protected SelectPanel selectPanel;
     private JScrollPane scrollPane;
     protected JPanel panel;
@@ -51,10 +53,10 @@ public abstract class DividePanel extends JPanel implements SwitchListener{
 
     public void userSwitch( int action, int from ) {
         try {
-        if(action == SwitchListener.NEXT) {
+        if(action == ISwitchListener.NEXT) {
             show(perPage * from);
             selectPanel.setCurrentSelection(from+1);
-        } else if(action == SwitchListener.PREVIOUS) {
+        } else if(action == ISwitchListener.PREVIOUS) {
             show(perPage * (from - 2));
             selectPanel.setCurrentSelection(from-1);
         }

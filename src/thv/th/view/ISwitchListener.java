@@ -10,7 +10,7 @@
 
 package thv.th.view;
 
-public interface SwitchListener {
+public interface ISwitchListener {
     public final static int PREVIOUS = 1;
     public final static int NEXT = 2;
     public final static int NEW = 3;

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class FileBuffer extends ABuffer {
 
@@ -28,5 +29,14 @@ public class FileBuffer extends ABuffer {
 		fis.close();
 		
 		return result;
+	}
+
+	@Override
+	public InputStream createInputStream() throws IOException {
+		try {
+			return new FileInputStream(this.file);
+		} catch(FileNotFoundException e) {
+			throw new IOException("File not found.");
+		}
 	}
 }

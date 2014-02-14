@@ -23,7 +23,9 @@ import thv.th.data.TabEntry;
 import thv.th.reader.ChunksReader;
 import thv.th.reader.ExtChunksReader;
 
-public final class ImagePanel extends CommonImagePanel {
+@SuppressWarnings("serial")
+public final class ImagePanel
+extends CommonImagePanel {
     boolean extendedChunks = false;
     
     /** Creates a new instance of ImagePanel */

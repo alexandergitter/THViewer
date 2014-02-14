@@ -1,9 +1,11 @@
 package thv.util;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 public class FullFileBuffer
 extends ABuffer {
@@ -25,6 +27,11 @@ extends ABuffer {
 
 	@Override
 	public int get(int position) throws IOException {
-		return buffer[position];
+		return buffer[position] & 0xff;
+	}
+
+	@Override
+	public InputStream createInputStream() throws IOException {
+		return new ByteArrayInputStream(this.buffer);
 	}
 }
