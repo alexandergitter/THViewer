@@ -68,3 +68,9 @@ C:\Program Files\Bullfrog\Hospital). The main window allows you to open the
 supported resource files. So if for instace you want to view all of theme
 hospitals mouse pointer sprites, you would choose "Viewer > Open" and then
 select the file "data/mpointer.dat".
+
+===================================
+RNC decompressor (dernc.c, dernc.h)
+===================================
+Released under the MIT license
+Copyright (c) 2009 Jon Skeet, Simon Tatham
