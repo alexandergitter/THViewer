@@ -39,9 +39,8 @@ THViewer should be able to run without problems on all the major platforms
 supporting Java (GNU/Linux, *BSD, Solaris, Win32).
 
 To build and run the current version of THViewer you need:
-  * Apache Commons IO (http://commons.apache.org/io/)
-  * A Java SDK >= 1.5 (http://java.sun.com/)
-  * Apache Ant (http://ant.apache.org/)
+  * A Java SDK >= 8 (https://adoptopenjdk.net/releases.html)
+  * Apache Maven (https://maven.apache.org/)
     
 Development is done using the latest stable versions of the above libraries. 
 Although using an older version may be OK, there is no guarantee that there 
@@ -50,22 +49,20 @@ will not be problems.
 ---------------
 4. Installation
 ---------------
-  * get Apache Commons IO and unpack the file "commons-io-1.4.jar" into the
-    project's root directory
-  * run ant
-  * copy the contents from ./build/dist/ whereever you see them fit
+  * run `mvn package`
+  * copy the thviewer.jar from ./target where ever you see them fit
   
 ----------
 5. Running
 ----------
 You can run the program by either
-  * using he build script - "ant run"
-  * directly running the THViewer.jar (will be created in ./build/dist/) -
-    "java -jar THViewer.jar"
+  * using the build script - "mvn exec:java"
+  * directly running the thviewer.jar (will be created in ./target/) -
+    "java -jar thviewer.jar"
   
 THViewer will ask you for the Theme Hospital (usually something like
 C:\Program Files\Bullfrog\Hospital). The main window allows you to open the
-supported resource files. So if for instace you want to view all of theme
+supported resource files. So if for instance you want to view all of theme
 hospitals mouse pointer sprites, you would choose "Viewer > Open" and then
 select the file "data/mpointer.dat".
 

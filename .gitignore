@@ -1,2 +1,4 @@
 build/
+target/
 commons-io-1.4.jar
+dependency-reduced-pom.xml
