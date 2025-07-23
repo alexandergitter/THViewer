@@ -29,6 +29,7 @@ import org.xml.sax.helpers.AttributesImpl;
 import org.xml.sax.helpers.DefaultHandler;
 
 import rnc.DeRNC;
+import thv.th.data.Sample;
 import thv.th.data.THMap;
 import thv.th.data.THPalette;
 import thv.th.data.THSound;
@@ -134,10 +135,13 @@ implements ActionListener {
     
     private SoundPanel createSoundPanel(File soundsFile)
     throws IOException {
-    	/*THSound sounds = SoundReader.readAll(soundsFile);
-    	
-    	return new SoundPanel(sounds);*/
-    	return null;
+        ABuffer buf = new FullFileBuffer(soundsFile);
+    	Vector<Sample> samples = SoundReader.readAll(buf);
+        THSound sounds = new THSound(buf);
+        for (Sample s : samples) {
+            sounds.addSample(s);
+        }
+    	return new SoundPanel(sounds);
     }
     
     private StringsPanel createStringsPanel(File stringsFile)

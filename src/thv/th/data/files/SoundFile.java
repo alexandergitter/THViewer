@@ -1,5 +1,6 @@
 package thv.th.data.files;
 
+import java.io.IOException;
 import java.util.Vector;
 
 import thv.th.data.Sample;
@@ -11,7 +12,7 @@ public class SoundFile {
 	
 	protected Vector<Sample> samples;
 	
-	public SoundFile(ABuffer rawData) {
+	public SoundFile(ABuffer rawData) throws IOException {
 		this.rawData = rawData;
 		this.samples = SoundReader.readAll(rawData);
 	}
