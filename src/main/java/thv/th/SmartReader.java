@@ -17,7 +17,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.ArrayList;
 
 import javax.swing.JComponent;
@@ -54,7 +54,7 @@ import thv.util.FullFileBuffer;
 public class SmartReader
 implements ActionListener {
     private File themeHospitalDir = null;
-    private Hashtable<String, File> table;
+    private HashMap<String, File> table;
     private MainWindow mainWindow;
 
     public SmartReader(File thDir, MainWindow mainWindow) {
