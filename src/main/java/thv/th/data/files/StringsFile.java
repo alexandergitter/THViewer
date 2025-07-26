@@ -1,7 +1,7 @@
 package thv.th.data.files;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.reader.LangReader;
 import thv.util.ABuffer;
@@ -9,7 +9,7 @@ import thv.util.ABuffer;
 public class StringsFile {
 	protected ABuffer rawData;
 	
-	protected Vector<Vector<String>> strings;
+	protected ArrayList<ArrayList<String>> strings;
 	
 	public StringsFile(ABuffer rawData)
 	throws IOException {

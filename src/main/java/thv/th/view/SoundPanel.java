@@ -26,14 +26,14 @@ import thv.th.data.THSound;
 @SuppressWarnings("serial")
 public class SoundPanel extends JPanel implements ActionListener {
     private THSound sound;
-    private JList listWidget;
+    private JList<Sample> listWidget;
     
     /** Creates a new instance of SoundPanel */
     public SoundPanel(THSound sound) {
         this.setLayout(new FlowLayout());
         this.sound = sound;
 
-        listWidget = new JList(sound.getSamples());
+        listWidget = new JList<Sample>(sound.getSamples().toArray(new Sample[0]));
         listWidget.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         add(new JScrollPane(listWidget));
         JButton play = new JButton("play");
@@ -42,6 +42,6 @@ public class SoundPanel extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        sound.play((Sample)listWidget.getSelectedValue());
+        sound.play(listWidget.getSelectedValue());
     }
 }

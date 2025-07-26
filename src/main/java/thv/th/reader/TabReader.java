@@ -11,7 +11,7 @@
 package thv.th.reader;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.data.TabEntry;
 import thv.util.ABuffer;
@@ -30,8 +30,8 @@ public class TabReader {
         return e;
     }
     
-    public static Vector<TabEntry> readAll(ABuffer is) throws IOException {
-        Vector<TabEntry> res = new Vector<TabEntry>();
+    public static ArrayList<TabEntry> readAll(ABuffer is) throws IOException {
+        ArrayList<TabEntry> res = new ArrayList<TabEntry>();
         int pos = 0;
         
         int consecNumber = 0;

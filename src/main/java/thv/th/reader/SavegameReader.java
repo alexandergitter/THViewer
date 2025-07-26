@@ -15,7 +15,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.apache.commons.io.EndianUtils;
 
@@ -29,7 +29,7 @@ import thv.util.ABuffer;
 public class SavegameReader {
 
     public static THMap read(FileInputStream frameStream, FileInputStream frameListStream, FileInputStream frameElementStream, File frameTabFile, File frameChunksFile, THPalette framePalette, FileInputStream saveStream, ABuffer blockTabStream, FileInputStream blockChunkStream, THPalette blockPalette, Color background) throws IOException {
-        Vector<BufferedImage> tiles = ChunksReader.readAll(blockChunkStream, blockTabStream, blockPalette, background);
+        ArrayList<BufferedImage> tiles = ChunksReader.readAll(blockChunkStream, blockTabStream, blockPalette, background);
         THMap result = new THMap();
         
         saveStream.getChannel().position(13);
@@ -47,15 +47,15 @@ public class SavegameReader {
                 layer1id = LevelReader.tileMap[layer1id];
                 layer2id = LevelReader.tileMap[layer2id];
                 
-                BufferedImage l0 = tiles.elementAt(layer0id);
+                BufferedImage l0 = tiles.get(layer0id);
                 BufferedImage l1 = null;
                 BufferedImage l2 = null;
                 if(layer1id > 0) {
-                    l1 = tiles.elementAt(layer1id);
+                    l1 = tiles.get(layer1id);
                 }
                 
                 if(layer2id > 0) {
-                    l2 = tiles.elementAt(layer2id);
+                    l2 = tiles.get(layer2id);
                 }
                 
                 saveStream.skip(1);

@@ -17,7 +17,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.reader.ChunksReader;
 import thv.th.reader.TabReader;
@@ -26,7 +26,7 @@ import thv.util.FileBuffer;
 
 public class THFrame {
     
-    private Vector<SpriteElement> elements;
+    private ArrayList<SpriteElement> elements;
     private int index;
     private int width;
     private int height;
@@ -47,7 +47,7 @@ public class THFrame {
         this.chunksFile = chunksFile;
         this.tabFile = tabFile;
         this.palette = palette;
-        elements = new Vector<SpriteElement>();
+        elements = new ArrayList<SpriteElement>();
     }
     
     public int getIndex() {
@@ -130,7 +130,7 @@ public class THFrame {
         return next;
     }
     
-    public Vector<SpriteElement> getElements() {
+    public ArrayList<SpriteElement> getElements() {
         return elements;
     }
     

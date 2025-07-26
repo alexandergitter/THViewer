@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Timer;
@@ -51,8 +51,8 @@ public class AnimationPanel extends CommonImagePanel {
         init();
     }
     
-    private Vector<THFrame> loadFrameChain(int index, FileInputStream frameStream, FileInputStream listStream, FileInputStream elementStream) throws IOException {
-        Vector<THFrame> res = new Vector<THFrame>();
+    private ArrayList<THFrame> loadFrameChain(int index, FileInputStream frameStream, FileInputStream listStream, FileInputStream elementStream) throws IOException {
+        ArrayList<THFrame> res = new ArrayList<THFrame>();
         
         THFrame first = FramesReader.readByIndex(index, frameStream, listStream, elementStream, tabFile, chunksFile, palette);
         
@@ -72,8 +72,8 @@ public class AnimationPanel extends CommonImagePanel {
         return res;
     }
     
-    protected Vector<THAnimation> loadAnimations(int start) throws IOException {
-        Vector<THAnimation> res = new Vector<THAnimation>();
+    protected ArrayList<THAnimation> loadAnimations(int start) throws IOException {
+        ArrayList<THAnimation> res = new ArrayList<THAnimation>();
         
         int animCount = (int)(startFile.length() / 4);
         
@@ -96,7 +96,7 @@ public class AnimationPanel extends CommonImagePanel {
             int maxXOffset = 0;
             int minYOffset = 256;
             
-            Vector<THFrame> frames = loadFrameChain(index, frameStream, listStream, elementStream);
+            ArrayList<THFrame> frames = loadFrameChain(index, frameStream, listStream, elementStream);
             
             if(frames.size() == 0)
                 continue;
@@ -150,7 +150,7 @@ public class AnimationPanel extends CommonImagePanel {
         panel.removeAll();
         
         loadPalette();
-        Vector<THAnimation> anims = loadAnimations(start);
+        ArrayList<THAnimation> anims = loadAnimations(start);
         
         timer.stop();
         

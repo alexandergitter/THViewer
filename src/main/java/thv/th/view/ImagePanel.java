@@ -55,7 +55,7 @@ extends CommonImagePanel {
             if(start + i >= entries.size())
                 break;
             
-            TabEntry en = entries.elementAt(i+start);
+            TabEntry en = entries.get(i+start);
             Image img;
             
             if(extendedChunks)

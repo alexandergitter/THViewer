@@ -13,7 +13,7 @@ package thv.th.reader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.apache.commons.io.EndianUtils;
 
@@ -39,7 +39,7 @@ public class FramesReader {
         
         THFrame res = new THFrame(frameIndex, width, height, flags, nextFrame, chunksFile, tabFile, palette);
         
-        Vector<Integer> elementList = new Vector<Integer>();
+        ArrayList<Integer> elementList = new ArrayList<Integer>();
         
         listStream.getChannel().position(listIndex);
         

@@ -14,7 +14,7 @@ import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.apache.commons.io.EndianUtils;
 
@@ -62,7 +62,7 @@ public class LevelReader {
     };
     
     public static THMap read(FileInputStream mapStream, ABuffer tabStream, FileInputStream chunkStream, THPalette palette, Color background) throws IOException {
-        Vector<BufferedImage> tiles = ChunksReader.readAll(chunkStream, tabStream, palette, background);
+        ArrayList<BufferedImage> tiles = ChunksReader.readAll(chunkStream, tabStream, palette, background);
         THMap result = new THMap();
         
         result.setPlayers(mapStream.read());
@@ -81,15 +81,15 @@ public class LevelReader {
                 layer1id = tileMap[layer1id];
                 layer2id = tileMap[layer2id];
                 
-                BufferedImage l0 = tiles.elementAt(layer0id);
+                BufferedImage l0 = tiles.get(layer0id);
                 BufferedImage l1 = null;
                 BufferedImage l2 = null;
                 if(layer1id > 0) {
-                    l1 = tiles.elementAt(layer1id);
+                    l1 = tiles.get(layer1id);
                 }
                 
                 if(layer2id > 0) {
-                    l2 = tiles.elementAt(layer2id);
+                    l2 = tiles.get(layer2id);
                 }
                 
                 mapStream.skip(3);

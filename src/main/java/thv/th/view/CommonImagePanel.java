@@ -13,7 +13,7 @@ package thv.th.view;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.data.THPalette;
 import thv.th.data.TabEntry;
@@ -28,7 +28,7 @@ extends DividePanel {
     protected File chunksFile;
     protected File tabFile;
     
-    protected Vector<TabEntry> entries = null;
+    protected ArrayList<TabEntry> entries = null;
     protected THPalette palette = null;
     
     /** Creates a new instance of ImagePanel */

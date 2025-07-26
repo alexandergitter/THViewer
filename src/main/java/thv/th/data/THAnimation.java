@@ -15,25 +15,25 @@ import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+import java.util.ArrayList;
 import javax.swing.JLabel;
 
 public class THAnimation extends JLabel implements ActionListener {
-    Vector<Image> frames;
-    Vector<THFrame> fdata;
+    ArrayList<Image> frames;
+    ArrayList<THFrame> fdata;
     int frameIndex = 0;
     int animIndex = 0;
 
     /** Creates a new instance of THAnimation */
     public THAnimation(int width, int height, int animIndex) {
-        frames = new Vector<Image>();
-        fdata = new Vector<THFrame>();
+        frames = new ArrayList<Image>();
+        fdata = new ArrayList<THFrame>();
         this.animIndex = animIndex;
         
         this.setPreferredSize(new Dimension(width+2, height+2));
     }
     
-    public Vector<THFrame> getFrames() {
+    public ArrayList<THFrame> getFrames() {
         return fdata;
     }
     
@@ -42,11 +42,11 @@ public class THAnimation extends JLabel implements ActionListener {
     } 
     
     public int getFrameWidth() {
-        return frames.elementAt(0).getWidth(null);
+        return frames.get(0).getWidth(null);
     }
     
     public int getFrameHeight() {
-        return frames.elementAt(0).getHeight(null);
+        return frames.get(0).getHeight(null);
     }
     
     public void addFrame(Image frame, THFrame data) {
@@ -55,7 +55,7 @@ public class THAnimation extends JLabel implements ActionListener {
     }
     
     public void paint(Graphics g) {
-        Image frame = frames.elementAt(frameIndex);
+        Image frame = frames.get(frameIndex);
         g.drawImage(frame, 0, 0, null);
     }
     
