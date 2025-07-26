@@ -14,7 +14,9 @@ import javax.swing.JFrame;
 
 public class Main {
     /**
-     * @param args the command line arguments
+     * @param args Command line arguments: the first argument is the optional
+     *             path to the HOSPITAL directory to open. If no argument is
+     *             given the program will prompt the user to select a directory.
      */
     public static void main(String[] args) throws Exception {
         MainWindow frame;

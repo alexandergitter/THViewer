@@ -23,12 +23,10 @@ import javax.swing.ListSelectionModel;
 import thv.th.data.Sample;
 import thv.th.data.THSound;
 
-@SuppressWarnings("serial")
 public class SoundPanel extends JPanel implements ActionListener {
     private THSound sound;
     private JList<Sample> listWidget;
     
-    /** Creates a new instance of SoundPanel */
     public SoundPanel(THSound sound) {
         this.setLayout(new FlowLayout());
         this.sound = sound;

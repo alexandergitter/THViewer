@@ -83,7 +83,7 @@ public class ChunksReader {
                                 my = en.getHeight() - y - 1;
                             }
  
-                            bi.setRGB(mx, my, palette.get(palindex).getRGB());
+                            bi.setRGB(mx, my, color.getRGB());
                             if((flags & SpriteElement.ALPHA_50) != 0) {
                                 raster.setPixel(mx, my, new int[]{128});
                             } else if((flags & SpriteElement.ALPHA_75) != 0) {

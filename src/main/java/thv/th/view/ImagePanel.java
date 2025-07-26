@@ -23,12 +23,10 @@ import thv.th.data.TabEntry;
 import thv.th.reader.ChunksReader;
 import thv.th.reader.ExtChunksReader;
 
-@SuppressWarnings("serial")
 public final class ImagePanel
 extends CommonImagePanel {
     boolean extendedChunks = false;
     
-    /** Creates a new instance of ImagePanel */
     public ImagePanel(File paletteFile, File chunksFile, File tabFile) {
         super(paletteFile, chunksFile, tabFile);
 

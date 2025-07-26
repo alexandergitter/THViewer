@@ -24,13 +24,11 @@ import javax.swing.JLabel;
 import thv.th.data.THPalette;
 import thv.th.reader.PaletteReader;
 
-@SuppressWarnings("serial")
 public class PalettePanel
 extends DividePanel {
     
     protected File paletteFile;
     
-    /** Creates a new instance of PalettePanel */
     public PalettePanel(File paletteFile) {
         this.paletteFile = paletteFile;
         perPage = 300;

@@ -17,13 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-@SuppressWarnings("serial")
 public class StringsPanel  extends JPanel {
     
     private JScrollPane scrollPane;
     
-    /** Creates a new instance of StringsPanel */
-    //public StringsPanel(File stringsFile) {
     public StringsPanel(ArrayList<ArrayList<String>> sections) {
         this.setLayout(new BorderLayout());
             
@@ -46,5 +43,4 @@ public class StringsPanel  extends JPanel {
         scrollPane = new JScrollPane(tf);
         this.add(scrollPane, BorderLayout.CENTER);
     }
-    
 }

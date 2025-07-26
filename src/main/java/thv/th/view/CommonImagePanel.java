@@ -44,7 +44,6 @@ extends DividePanel {
         
         ABuffer is = new FileBuffer(tabFile);
         entries = TabReader.readAll(is);
-        //is.close();
         
         selectPanel.setSelectionCount((entries.size() / perPage) + 1);
     }

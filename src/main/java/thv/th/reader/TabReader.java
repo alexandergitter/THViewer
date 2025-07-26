@@ -19,8 +19,6 @@ import thv.util.ABuffer;
 public class TabReader {
     public static TabEntry readByPosition(ABuffer buffer, int position, int consecNumber)
     throws IOException {
-        //buffer.seek(position);
-        
         TabEntry e = new TabEntry(position, 0, 0, 0, consecNumber);
             
         e.setChunksPos( buffer.getSwappedInteger(position) );

@@ -35,7 +35,6 @@ public final class FramePanel extends CommonImagePanel {
     
     protected ArrayList<THFrame> frames;
     
-    /** Creates a new instance of SpriteElementPanel */
     public FramePanel(File paletteFile, File chunksFile, File tabFile, File spriteElementFile, File framesFile, File listFile) {
         super(paletteFile, chunksFile, tabFile);
         this.framesFile = framesFile;
@@ -94,7 +93,6 @@ public final class FramePanel extends CommonImagePanel {
         }
 
         chunksStream.close();
-        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }

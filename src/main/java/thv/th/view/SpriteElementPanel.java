@@ -32,14 +32,12 @@ import thv.th.reader.TabReader;
 import thv.util.ABuffer;
 import thv.util.FileBuffer;
 
-@SuppressWarnings("serial")
 public final class SpriteElementPanel
 extends CommonImagePanel {
 
     protected File spriteElementFile;
     protected ArrayList<SpriteElement> elements;    
     
-    /** Creates a new instance of SpriteElementPanel */
     public SpriteElementPanel(File paletteFile, File chunksFile, File tabFile, File spriteElementFile) {
         super(paletteFile, chunksFile, tabFile);
         this.spriteElementFile = spriteElementFile;
@@ -98,7 +96,6 @@ extends CommonImagePanel {
         }
 
         is.close();
-        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }

@@ -46,7 +46,6 @@ import javax.swing.JViewport;
  * @author This was written by A. Chris Long <chrislong@acm.org> (but modified for FreeHEP)
  * @version $Id$
  */
-@SuppressWarnings("serial")
 public class FlowScrollLayout extends FlowLayout
 implements ComponentListener, LayoutManager2 {
     private JScrollPane scroller = null;

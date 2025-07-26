@@ -20,7 +20,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicArrowButton;
 
-@SuppressWarnings( "serial" )
 public class SelectPanel
 extends JPanel {
 

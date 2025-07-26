@@ -37,7 +37,6 @@ public class AnimationPanel extends CommonImagePanel {
     
     protected Timer timer;
     
-    /** Creates a new instance of AnimationPanel */
     public AnimationPanel(File paletteFile, File chunksFile, File tabFile, File spriteElementFile, File framesFile, File listFile, File startFile) {
         super(paletteFile, chunksFile, tabFile);
         this.framesFile = framesFile;
@@ -135,7 +134,6 @@ public class AnimationPanel extends CommonImagePanel {
             res.add(an);
         }
         
-        //tabStream.close();
         chunkStream.close();
         frameStream.close();
         listStream.close();

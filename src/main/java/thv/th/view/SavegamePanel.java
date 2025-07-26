@@ -30,7 +30,6 @@ public class SavegamePanel extends JPanel {
     private JScrollPane scrollPane;
     private THMap mapComponent;
     
-    /** Creates a new instance of MapPanel */
     public SavegamePanel(File frameFile, File frameListFile, File frameElementFile, File frameTabFile, File frameChunksFile, File framePaletteFile, File saveFile, File blockTabFile, File blockChunksFile, File blockPaletteFile) {
         this.setLayout(new BorderLayout());
         
@@ -57,7 +56,6 @@ public class SavegamePanel extends JPanel {
             frameListStream.close();
             frameElementStream.close();
             saveStream.close();
-            //blockTabStream.close();
             blockChunksStream.close();
         
             scrollPane = new JScrollPane(mapComponent, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -66,5 +64,4 @@ public class SavegamePanel extends JPanel {
             e.printStackTrace();
         }
     }
-    
 }

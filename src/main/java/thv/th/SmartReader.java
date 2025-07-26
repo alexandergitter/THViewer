@@ -172,7 +172,6 @@ implements ActionListener {
         THMap mapComponent = LevelReader.read(mapStream, tabStream, chunksStream, palette, new Color(0, 0, 0, 0));
     
         mapStream.close();
-        //tabStream.close();
         chunksStream.close();
     
         return new MapPanel(mapComponent);
