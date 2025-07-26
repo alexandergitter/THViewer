@@ -255,7 +255,7 @@ class FileTypeExtractor extends DefaultHandler {
 
         try {
             SAXParser saxParser = factory.newSAXParser();
-            saxParser.parse(new File("FileList.xml"), this);
+            saxParser.parse(getClass().getResourceAsStream("/FileList.xml"), this);
         } catch (Throwable e) {
             e.printStackTrace();
         }
