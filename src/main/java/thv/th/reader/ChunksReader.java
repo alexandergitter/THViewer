@@ -63,13 +63,20 @@ public class ChunksReader {
             int x = 0;
 
             while(true) { // loop until end of row
-                byte val = (byte)is.read();
+                int b = is.read();
+                if(b == -1) {
+                    throw new IOException("Unexpected end of stream");
+                }
+                byte val = (byte)b;
 
                 if(val == 0) {  // end of row
                     break;
                 } else if(val > 0) {
                     for(int i = 0; i < val; ++i) {
                         int palindex = is.read();
+                        if (palindex == -1) {
+                            throw new IOException("Unexpected end of stream");
+                        }
                         Color color = palette.get(palindex);
                         try {
                             int mx = x;
