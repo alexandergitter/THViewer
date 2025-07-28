@@ -11,7 +11,7 @@
 package thv.th.reader;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.data.TabEntry;
 import thv.util.ABuffer;
@@ -19,8 +19,6 @@ import thv.util.ABuffer;
 public class TabReader {
     public static TabEntry readByPosition(ABuffer buffer, int position, int consecNumber)
     throws IOException {
-        //buffer.seek(position);
-        
         TabEntry e = new TabEntry(position, 0, 0, 0, consecNumber);
             
         e.setChunksPos( buffer.getSwappedInteger(position) );
@@ -30,8 +28,8 @@ public class TabReader {
         return e;
     }
     
-    public static Vector<TabEntry> readAll(ABuffer is) throws IOException {
-        Vector<TabEntry> res = new Vector<TabEntry>();
+    public static ArrayList<TabEntry> readAll(ABuffer is) throws IOException {
+        ArrayList<TabEntry> res = new ArrayList<TabEntry>();
         int pos = 0;
         
         int consecNumber = 0;

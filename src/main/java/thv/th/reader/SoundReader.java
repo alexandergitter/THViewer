@@ -12,15 +12,15 @@
 package thv.th.reader;
 
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.data.Sample;
 import thv.util.ABuffer;
 
 public class SoundReader {
-    public static Vector<Sample> readAll(ABuffer buffer)
+    public static ArrayList<Sample> readAll(ABuffer buffer)
     throws IOException {
-        Vector<Sample> result = new Vector<Sample>();
+        ArrayList<Sample> result = new ArrayList<Sample>();
         
         int infoPosition = buffer.getSwappedInteger(buffer.getSize() - 4);
         int indexPosition = buffer.getSwappedInteger(infoPosition + 50);

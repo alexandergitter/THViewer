@@ -40,14 +40,14 @@ public class ExtChunksReader {
                 } else if(val <= 63) {
                     for(int i = 0; i < val; ++i) {
                         int palindex = is.read();
-                        bi.setRGB(x, y, palette.elementAt(palindex).getRGB());
+                        bi.setRGB(x, y, palette.get(palindex).getRGB());
                         ++x;
                     }
                 } else if(val <= 127) {
                     int palindex = is.read();
 
                     for(int i = 0; i < (val-60); ++i) {
-                        bi.setRGB(x, y, palette.elementAt(palindex).getRGB());
+                        bi.setRGB(x, y, palette.get(palindex).getRGB());
                         ++x;
                     }
                 } else if(val <= 191) {
@@ -58,7 +58,7 @@ public class ExtChunksReader {
                     int palindex = is.read();
 
                     for(int i = 0; i < (val-124); ++i) {
-                        bi.setRGB(x, y, palette.elementAt(palindex).getRGB());
+                        bi.setRGB(x, y, palette.get(palindex).getRGB());
                         ++x;
                     }
                 } else {
@@ -66,7 +66,7 @@ public class ExtChunksReader {
                     int palindex = is.read();
 
                     for(int i = 0; i < count; ++i) {
-                        bi.setRGB(x, y, palette.elementAt(palindex).getRGB());
+                        bi.setRGB(x, y, palette.get(palindex).getRGB());
                         ++x;
                     }
                 }

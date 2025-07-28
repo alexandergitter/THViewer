@@ -12,7 +12,7 @@ package thv.th.reader;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import org.apache.commons.io.EndianUtils;
 
@@ -33,8 +33,8 @@ public class SpriteElementReader {
         return new SpriteElement(index * 6, tabPos, offsetx, offsety, flags, id, layerClass);
     }
     
-    public static Vector<SpriteElement> readAll(FileInputStream is) throws IOException {
-        Vector<SpriteElement> res = new Vector<SpriteElement>();
+    public static ArrayList<SpriteElement> readAll(FileInputStream is) throws IOException {
+        ArrayList<SpriteElement> res = new ArrayList<SpriteElement>();
         
         int index = 0;
         

@@ -15,14 +15,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-@SuppressWarnings("serial")
 public class MainWindow extends JFrame {
-    //private Color imageBackground = Color.WHITE;
     private JPanel panel;
     private SmartReader smartReader;
     private JFileChooser fc = new JFileChooser();
     
-    /** Creates a new instance of Main */
     public MainWindow(String thDir) throws Exception {
         super("TH Viewer");
 
@@ -51,12 +48,8 @@ public class MainWindow extends JFrame {
                 int vr = Integer.parseInt(JOptionPane.showInputDialog("viewer background red"));
                 int vg = Integer.parseInt(JOptionPane.showInputDialog("viewer background green"));
                 int vb = Integer.parseInt(JOptionPane.showInputDialog("viewer background blue"));
-                /*int ir = Integer.parseInt(JOptionPane.showInputDialog("image background red"));
-                int ig = Integer.parseInt(JOptionPane.showInputDialog("image background green"));
-                int ib = Integer.parseInt(JOptionPane.showInputDialog("image background blue"));*/
                 
                 panel.setBackground(new Color(vr, vg, vb));
-                //imageBackground = new Color(ir, ig, ib);
             }
         });
         

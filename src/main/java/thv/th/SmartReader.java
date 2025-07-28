@@ -17,8 +17,8 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Hashtable;
-import java.util.Vector;
+import java.util.HashMap;
+import java.util.ArrayList;
 
 import javax.swing.JComponent;
 import javax.xml.parsers.SAXParser;
@@ -54,7 +54,7 @@ import thv.util.FullFileBuffer;
 public class SmartReader
 implements ActionListener {
     private File themeHospitalDir = null;
-    private Hashtable<String, File> table;
+    private HashMap<String, File> table;
     private MainWindow mainWindow;
 
     public SmartReader(File thDir, MainWindow mainWindow) {
@@ -136,7 +136,7 @@ implements ActionListener {
     private SoundPanel createSoundPanel(File soundsFile)
     throws IOException {
         ABuffer buf = new FullFileBuffer(soundsFile);
-    	Vector<Sample> samples = SoundReader.readAll(buf);
+    	ArrayList<Sample> samples = SoundReader.readAll(buf);
         THSound sounds = new THSound(buf);
         for (Sample s : samples) {
             sounds.addSample(s);
@@ -148,7 +148,7 @@ implements ActionListener {
     throws IOException {
     	dernc(stringsFile);
     	ABuffer buf = new FullFileBuffer(stringsFile);
-        Vector<Vector<String>> sections = LangReader.read(buf);
+        ArrayList<ArrayList<String>> sections = LangReader.read(buf);
         
         return new StringsPanel(sections);
     }
@@ -172,7 +172,6 @@ implements ActionListener {
         THMap mapComponent = LevelReader.read(mapStream, tabStream, chunksStream, palette, new Color(0, 0, 0, 0));
     
         mapStream.close();
-        //tabStream.close();
         chunksStream.close();
     
         return new MapPanel(mapComponent);
@@ -255,7 +254,7 @@ class FileTypeExtractor extends DefaultHandler {
 
         try {
             SAXParser saxParser = factory.newSAXParser();
-            saxParser.parse(new File("FileList.xml"), this);
+            saxParser.parse(getClass().getResourceAsStream("/FileList.xml"), this);
         } catch (Throwable e) {
             e.printStackTrace();
         }

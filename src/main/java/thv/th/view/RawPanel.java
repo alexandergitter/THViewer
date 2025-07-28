@@ -18,14 +18,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-@SuppressWarnings("serial")
 public class RawPanel
 extends JPanel {
     
     private JScrollPane scrollPane;
     
-    /** Creates a new instance of RawPanel */
-    //public RawPanel(File paletteFile, int width, int height, File rawFile) {
     public RawPanel(Image img) {
         this.setLayout(new BorderLayout());
         

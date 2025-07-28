@@ -11,7 +11,7 @@
 package thv.th.data;
 
 import java.io.InputStream;
-import java.util.Vector;
+import java.util.ArrayList;
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -23,19 +23,19 @@ import thv.util.ABuffer;
 public class THSound {
     
     private ABuffer soundBuffer;
-    private Vector<Sample> samples;
+    private ArrayList<Sample> samples;
     
     /** Creates a new instance of THSound */
     public THSound(ABuffer soundBuffer) {
         this.soundBuffer = soundBuffer;
-        this.samples = new Vector<Sample>();
+        this.samples = new ArrayList<Sample>();
     }
     
     public void addSample(Sample s) {
         samples.add(s);
     }
     
-    public Vector<Sample> getSamples() {
+    public ArrayList<Sample> getSamples() {
         return this.samples;
     }
     

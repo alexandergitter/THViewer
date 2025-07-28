@@ -19,7 +19,6 @@ import thv.th.data.THPalette;
 
 public class RawReader {
     
-    /** Creates a new instance of RawReader */
     public static Image read(FileInputStream rawStream, THPalette palette, int width, int height) throws IOException {
         BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
         rawStream.getChannel().position(0);
@@ -27,7 +26,7 @@ public class RawReader {
         for(int y = 0; y < height; ++y) {
             for(int x = 0; x < width; ++x) {
                 int a = rawStream.read() & 0xff;
-                bi.setRGB(x, y, palette.elementAt(a).getRGB());
+                bi.setRGB(x, y, palette.get(a).getRGB());
             }
         }
         

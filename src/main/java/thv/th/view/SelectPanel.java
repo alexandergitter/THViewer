@@ -14,13 +14,12 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.plaf.basic.BasicArrowButton;
 
-@SuppressWarnings( "serial" )
 public class SelectPanel
 extends JPanel {
 
@@ -28,7 +27,7 @@ extends JPanel {
     private BasicArrowButton previousButton = null;
     private BasicArrowButton nextButton = null;
 
-    private Vector< ISwitchListener > switchListeners;
+    private ArrayList< ISwitchListener > switchListeners;
 
     private int selectionCount;
     private int currentSelection;
@@ -39,7 +38,7 @@ extends JPanel {
     }
 
     private void initialize() {
-        switchListeners = new Vector< ISwitchListener >();
+        switchListeners = new ArrayList< ISwitchListener >();
         FlowLayout flowLayout = new FlowLayout();
         flowLayout.setAlignment( FlowLayout.LEFT );
         selectionLabel = new JLabel( "Page: " );

@@ -13,7 +13,6 @@ package thv.th.reader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
 
 import org.apache.commons.io.EndianUtils;
 
@@ -38,8 +37,6 @@ public class FramesReader {
         int nextFrame = EndianUtils.readSwappedShort(frameStream);
         
         THFrame res = new THFrame(frameIndex, width, height, flags, nextFrame, chunksFile, tabFile, palette);
-        
-        Vector<Integer> elementList = new Vector<Integer>();
         
         listStream.getChannel().position(listIndex);
         

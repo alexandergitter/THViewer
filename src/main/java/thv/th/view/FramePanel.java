@@ -15,7 +15,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -33,9 +33,8 @@ public final class FramePanel extends CommonImagePanel {
     protected File listFile;
     protected File spriteElementFile;
     
-    protected Vector<THFrame> frames;
+    protected ArrayList<THFrame> frames;
     
-    /** Creates a new instance of SpriteElementPanel */
     public FramePanel(File paletteFile, File chunksFile, File tabFile, File spriteElementFile, File framesFile, File listFile) {
         super(paletteFile, chunksFile, tabFile);
         this.framesFile = framesFile;
@@ -48,9 +47,9 @@ public final class FramePanel extends CommonImagePanel {
     
     protected void loadFrames(int start) throws IOException {
         if(frames == null)
-            frames = new Vector<THFrame>();
+            frames = new ArrayList<THFrame>();
         
-        frames.removeAllElements();
+        frames.clear();
         
         int framesCount = (int)(framesFile.length() / 10);
         
@@ -94,7 +93,6 @@ public final class FramePanel extends CommonImagePanel {
         }
 
         chunksStream.close();
-        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }
@@ -108,7 +106,7 @@ public final class FramePanel extends CommonImagePanel {
         sb.append("<br><b>Flags:</b> " + frame.getFlags());
         sb.append("<br><u>Spriteelements</u>");
         
-        Vector<SpriteElement> vec = frame.getElements();
+        ArrayList<SpriteElement> vec = frame.getElements();
         
         for(SpriteElement el: vec) {
             if(el.getId() < 2 || el.getId() == layerid) {

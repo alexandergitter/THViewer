@@ -11,14 +11,14 @@
 package thv.th;
 
 import java.io.File;
-import java.util.Hashtable;
+import java.util.HashMap;
 import java.util.Stack;
 
 public class FileScanner {
-    public static Hashtable<String, File>
+    public static HashMap<String, File>
     scanDirectory(File dir) {
-        Hashtable<String, File> result = new Hashtable<String, File>();
-        
+        HashMap<String, File> result = new HashMap<String, File>();
+
         Stack<File> stack = new Stack<File>();
         File curDir;
         

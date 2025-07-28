@@ -18,7 +18,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -32,14 +32,12 @@ import thv.th.reader.TabReader;
 import thv.util.ABuffer;
 import thv.util.FileBuffer;
 
-@SuppressWarnings("serial")
 public final class SpriteElementPanel
 extends CommonImagePanel {
 
     protected File spriteElementFile;
-    protected Vector<SpriteElement> elements;    
+    protected ArrayList<SpriteElement> elements;    
     
-    /** Creates a new instance of SpriteElementPanel */
     public SpriteElementPanel(File paletteFile, File chunksFile, File tabFile, File spriteElementFile) {
         super(paletteFile, chunksFile, tabFile);
         this.spriteElementFile = spriteElementFile;
@@ -49,9 +47,9 @@ extends CommonImagePanel {
     
     protected void loadElements(int start) throws IOException {
         if(elements == null)
-            elements = new Vector<SpriteElement>();
+            elements = new ArrayList<SpriteElement>();
         
-        elements.removeAllElements();
+        elements.clear();
         
         int elementCount = (int)(spriteElementFile.length() / 6);
         
@@ -81,7 +79,7 @@ extends CommonImagePanel {
             if(i >= elements.size())
                 break;
             
-            SpriteElement el = elements.elementAt(i);
+            SpriteElement el = elements.get(i);
             TabEntry en = TabReader.readByPosition(tabStream, el.getTabPos(), 0);
             Image img = ChunksReader.readByEntry(is, en, palette, new Color(0, 0, 0, 0), el.getFlags());
             JLabel l = new MyLabel(el, img, spriteElementFile);
@@ -98,7 +96,6 @@ extends CommonImagePanel {
         }
 
         is.close();
-        //tabStream.close();
         panel.revalidate();
         panel.repaint();
     }

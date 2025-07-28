@@ -18,7 +18,7 @@ import java.awt.image.WritableRaster;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import thv.th.data.SpriteElement;
 import thv.th.data.THPalette;
@@ -28,10 +28,10 @@ import thv.util.ABuffer;
 public class ChunksReader {
     private static HashMap<Integer, BufferedImage> cache = new HashMap<Integer, BufferedImage>();
     
-    public static Vector<BufferedImage> readAll(FileInputStream chunkStream, ABuffer tabStream, THPalette palette, Color background) throws IOException {
-        Vector<TabEntry> entries = TabReader.readAll(tabStream);
+    public static ArrayList<BufferedImage> readAll(FileInputStream chunkStream, ABuffer tabStream, THPalette palette, Color background) throws IOException {
+        ArrayList<TabEntry> entries = TabReader.readAll(tabStream);
         
-        Vector<BufferedImage> res = new Vector<BufferedImage>();
+        ArrayList<BufferedImage> res = new ArrayList<BufferedImage>();
         
         for(TabEntry en: entries) {
             res.add(readByEntry(chunkStream, en, palette, background, (byte)0));
@@ -63,14 +63,21 @@ public class ChunksReader {
             int x = 0;
 
             while(true) { // loop until end of row
-                byte val = (byte)is.read();
+                int b = is.read();
+                if(b == -1) {
+                    throw new IOException("Unexpected end of stream");
+                }
+                byte val = (byte)b;
 
                 if(val == 0) {  // end of row
                     break;
                 } else if(val > 0) {
                     for(int i = 0; i < val; ++i) {
                         int palindex = is.read();
-                        Color color = palette.elementAt(palindex);
+                        if (palindex == -1) {
+                            throw new IOException("Unexpected end of stream");
+                        }
+                        Color color = palette.get(palindex);
                         try {
                             int mx = x;
                             int my = y;
@@ -83,7 +90,7 @@ public class ChunksReader {
                                 my = en.getHeight() - y - 1;
                             }
  
-                            bi.setRGB(mx, my, palette.elementAt(palindex).getRGB());
+                            bi.setRGB(mx, my, color.getRGB());
                             if((flags & SpriteElement.ALPHA_50) != 0) {
                                 raster.setPixel(mx, my, new int[]{128});
                             } else if((flags & SpriteElement.ALPHA_75) != 0) {

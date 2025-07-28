@@ -11,8 +11,8 @@
 package thv.th.data;
 
 import java.awt.Color;
-import java.util.Vector;
+import java.util.ArrayList;
 
-public class THPalette extends Vector<Color> {
+public class THPalette extends ArrayList<Color> {
         
 }

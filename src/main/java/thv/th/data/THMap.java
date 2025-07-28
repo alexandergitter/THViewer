@@ -30,8 +30,6 @@ import java.io.IOException;
 
 import javax.swing.JComponent;
 
-import thv.th.Main;
-
 public class THMap extends JComponent implements MouseListener {
     private int players;
     private Tile[][] tiles;
@@ -129,7 +127,6 @@ public class THMap extends JComponent implements MouseListener {
         
         int tx = 0;
         int ty = 0;
-        int offset = 0;
         
         while(tileUpper.y < 128) {
             tx = tileUpper.x;

@@ -11,26 +11,23 @@
 package thv.th.view;
 
 import java.awt.BorderLayout;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-@SuppressWarnings("serial")
 public class StringsPanel  extends JPanel {
     
     private JScrollPane scrollPane;
     
-    /** Creates a new instance of StringsPanel */
-    //public StringsPanel(File stringsFile) {
-    public StringsPanel(Vector<Vector<String>> sections) {
+    public StringsPanel(ArrayList<ArrayList<String>> sections) {
         this.setLayout(new BorderLayout());
             
         StringBuilder sb = new StringBuilder();
             
         int k = 0;
-        for(Vector<String> v: sections) {
+        for(ArrayList<String> v: sections) {
             sb.append("======= Section " + k + " =======\n");
             int i = 0;
             for(String s: v) {
@@ -46,5 +43,4 @@ public class StringsPanel  extends JPanel {
         scrollPane = new JScrollPane(tf);
         this.add(scrollPane, BorderLayout.CENTER);
     }
-    
 }
